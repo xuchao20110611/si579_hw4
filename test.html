@@ -1,0 +1,41 @@
+<body>
+姓名<input type="text" id="ipt1" />
+性别<input type="text" id="ipt2" />
+<input type="button" value="提交" id="tj" />
+<table id="table">
+
+</table>
+</body>
+<script>
+    var oUser = document.getElementById('ipt1');
+    var oSex = document.getElementById('ipt2');
+    var btn = document.getElementById('tj');
+
+    btn.onclick = function(){
+
+        var oTable = document.getElementById('table');
+        var oTr = document.createElement('tr');
+        var oTd1 = document.createElement('td');
+        var oTd2 = document.createElement('td');
+        var oTd3 = document.createElement('td');
+        var btn1 = document.createElement('button');
+        btn1.innerHTML = '删除';
+        btn1.setAttribute('onclick','del(this)');
+
+        oTd1.innerHTML = oUser.value;
+        oTd2.innerHTML = oSex.value;
+        oTd1.setAttribute('aaa','val');
+        oTr.appendChild(oTd1);
+        oTr.appendChild(oTd2);
+        oTd3.appendChild(btn1);
+        oTr.appendChild(oTd3);
+        oTable.appendChild(oTr);
+
+    }
+    //删除某一行
+    function del(obj){
+        var oParent = obj.parentNode.parentNode;
+        // console.log(oParent)
+        document.getElementById('table').removeChild(oParent);
+    }
+</script>
